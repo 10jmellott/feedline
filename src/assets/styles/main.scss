@@ -1,0 +1,24 @@
+// Global styles for feedline
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+// Minimalist styling
+.v-sheet {
+  transition: box-shadow 0.2s ease;
+}
+
+// Smooth theme transitions
+* {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
