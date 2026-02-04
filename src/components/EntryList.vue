@@ -1,6 +1,6 @@
 <template>
   <v-list>
-    <template v-for="(entry, index) in entries" :key="entry.id || entry.guid">
+    <template v-for="(entry) in entries" :key="entry.id || entry.guid">
       <v-list-item
         @click="handleClick(entry)"
         class="entry-list-item"
@@ -11,7 +11,16 @@
 
         <v-list-item-subtitle class="text-wrap mt-1">
           {{ formattedDate(entry.pubDate) }}
-          <span v-if="entry.author"> • <span>{{ entry.author['#text'] ?? entry.author }}</span></span>
+          <span v-if="entry.author">
+            •
+            <span>
+              {{
+                typeof entry.author === 'object' && entry.author !== null && '#text' in entry.author
+                  ? (entry.author as { ['#text']: string })['#text']
+                  : entry.author
+              }}
+            </span>
+          </span>
         </v-list-item-subtitle>
 
         <template v-slot:append>
