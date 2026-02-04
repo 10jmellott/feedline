@@ -12,5 +12,12 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
+  server: {
+		port: 8086,
+	},
+	build: {
+		chunkSizeWarningLimit: 3000,
+	},
+	base: "/feedline/",
 })
